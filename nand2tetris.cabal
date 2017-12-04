@@ -1,0 +1,45 @@
+name:                nand2tetris
+version:             0.1.0.0
+synopsis:            Nand2Tetris
+homepage:            https://github.com/mschristiansen/nand2tetris#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Mikkel Christiansen
+maintainer:          mikkels@gmail.com
+copyright:           Mikkel Christiansen
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+-- To avoid duplicated efforts in documentation and dealing with the
+-- complications of embedding Haddock markup inside cabal files, it is
+-- common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/mschristiansen/nand2tetris#readme>
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Lib
+  build-depends:       base >= 4.7 && < 5
+  default-language:    Haskell2010
+
+executable nand2tetris-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , nand2tetris
+  default-language:    Haskell2010
+
+test-suite nand2tetris-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , nand2tetris
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/mschristiansen/nand2tetris
